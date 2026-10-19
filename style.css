@@ -109,3 +109,20 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .about-panel { grid-template-columns: 1fr; padding: 22px; gap: 17px; }.about-panel .text-link { grid-column: auto; }.video-grid, .arena-grid { grid-template-columns: 1fr; }.video-thumb { height: 190px; }.live-inner { grid-template-columns: 1fr; gap: 30px; padding-top: 42px; padding-bottom: 42px; }.stream-screen { height: 230px; }.contact-box { flex-direction: column; align-items: flex-start; padding: 25px; }.site-footer { padding-block: 25px; flex-wrap: wrap; }.site-footer p { order: 3; width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+.hero-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 5;
+}
+
+.about-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 5;
+}
