@@ -145,3 +145,37 @@ button, a { -webkit-tap-highlight-color: transparent; }
   }
 }
 
+/* GamerJay Instagram Button */
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+  padding: 0 16px;
+}
+
+.instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 22px;
+  border-radius: 14px;
+  background: linear-gradient(110deg, #833ab4, #e1306c, #f77737);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(225, 48, 108, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.instagram-btn:hover {
+  transform: translateY(-2px);
+}
+
+.instagram-btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
