@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050810">
+  <meta name="description" content="Gamer Jay — Free Fire, Minecraft, gameplay, shorts and esports.">
+  <title>GAMER JAY | Pro Esports</title>
+  <style>
+    :root {
+      --bg: #050810;
+      --panel: #0a1220;
+      --panel2: #0d1a2b;
+      --blue: #00c8ff;
+      --blue2: #168bff;
+      --text: #f2f8ff;
+      --muted: #9aadc4;
+      --line: rgba(0, 200, 255, .2);
+      --glow: 0 0 28px rgba(0, 200, 255, .18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 80% 0%, rgba(0, 112, 255, .16), transparent 38%),
+        radial-gradient(ellipse at 0% 35%, rgba(0, 200, 255, .07), transparent 30%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6; overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1120px, calc(100% - 36px)); margin: 0 auto; }
+    .topline { height: 3px; background: linear-gradient(90deg, transparent, var(--blue), #fff, var(--blue2), transparent); }
+    header {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px);
+      background: rgba(5, 8, 16, .82); border-bottom: 1px solid var(--line);
+    }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 950; letter-spacing: .08em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--blue);
+      background: linear-gradient(145deg, rgba(0,200,255,.22), rgba(22,139,255,.04));
+      color: var(--blue); clip-path: polygon(18% 0, 100% 0, 100% 82%, 82% 100%, 0 100%, 0 18%);
+      box-shadow: var(--glow); font-size: 1.05rem;
+    }
+    .brand-name { font-size: .98rem; line-height: 1.1; }
+    .brand-name span { display: block; color: var(--blue); font-size: .66rem; letter-spacing: .25em; margin-top: 4px; }
+    .links { display: flex; align-items: center; gap: 24px; color: var(--muted); font-size: .9rem; }
+    .links a:hover, .links a:focus { color: var(--blue); }
+    .menu-btn { display: none; border: 1px solid var(--line); background: var(--panel); color: var(--blue); border-radius: 9px; padding: 8px 11px; font-size: 1.15rem; }
+    .hero { position: relative; padding: 88px 0 74px; min-height: 560px; display: grid; align-items: center; }
+    .hero-grid { display: grid; grid-template-columns: 1.12fr .88fr; gap: 44px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); border: 1px solid var(--line); background: rgba(0,200,255,.055); padding: 7px 12px; border-radius: 4px; font-size: .74rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+    .dot { width: 7px; height: 7px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 12px var(--blue); animation: pulse 1.6s infinite; }
+    h1 { margin: 22px 0 14px; font-size: clamp(3.15rem, 8vw, 6.5rem); line-height: .92; letter-spacing: -.065em; font-weight: 1000; }
+    h1 .outline { color: transparent; -webkit-text-stroke: 1.5px var(--blue); text-shadow: 0 0 25px rgba(0,200,255,.1); }
+    .hero p { max-width: 540px; color: var(--muted); font-size: 1.05rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 18px; border-radius: 5px; font-weight: 850; letter-spacing: .035em; border: 1px solid var(--blue); transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer; }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,200,255,.2); }
+    .btn-primary { background: var(--blue); color: #001018; }
+    .btn-secondary { background: rgba(0,200,255,.04); color: var(--text); }
+    .hero-art { min-height: 330px; display: grid; place-items: center; position: relative; }
+    .orbit { width: min(100%, 390px); aspect-ratio: 1; border: 1px solid rgba(0,200,255,.24); border-radius: 50%; display: grid; place-items: center; position: relative; background: radial-gradient(circle, rgba(0,200,255,.11), transparent 62%); }
+    .orbit::before, .orbit::after { content: ""; position: absolute; inset: 9%; border: 1px dashed rgba(0,200,255,.22); border-radius: 50%; animation: spin 24s linear infinite; }
+    .orbit::after { inset: 20%; border-style: solid; animation-direction: reverse; animation-duration: 18s; }
+    .core { width: 56%; aspect-ratio: 1; display: grid; place-items: center; clip-path: polygon(20% 0, 80% 0, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0 80%, 0 20%); background: linear-gradient(145deg, #112e47, #06101e 65%); border: 1px solid var(--blue); box-shadow: 0 0 55px rgba(0,200,255,.2), inset 0 0 35px rgba(0,200,255,.12); text-align: center; }
+    .core strong { display: block; font-size: clamp(2.7rem, 8vw, 4.8rem); line-height: 1; letter-spacing: -.08em; color: var(--blue); text-shadow: 0 0 25px rgba(0,200,255,.5); }
+    .core span { display: block; font-size: .67rem; letter-spacing: .32em; margin-top: 9px; color: #dff8ff; }
+    .float-tag { position: absolute; padding: 8px 12px; background: #07101d; border: 1px solid var(--line); color: var(--blue); font-size: .72rem; letter-spacing: .12em; font-weight: 850; box-shadow: var(--glow); }
+    .tag-one { top: 12%; right: -2%; } .tag-two { bottom: 13%; left: -3%; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); background: rgba(8,17,30,.8); margin-top: 12px; }
+    .stat { padding: 20px; text-align: center; } .stat + .stat { border-left: 1px solid var(--line); }
+    .stat strong { display: block; font-size: 1.45rem; color: var(--blue); line-height: 1.2; } .stat span { font-size: .74rem; color: var(--muted); letter-spacing: .13em; text-transform: uppercase; }
+    section { padding: 76px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 26px; }
+    .kicker { color: var(--blue); font-size: .72rem; letter-spacing: .24em; font-weight: 900; text-transform: uppercase; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -.045em; line-height: 1.1; margin: 7px 0 0; }
+    .section-head p { color: var(--muted); max-width: 420px; margin: 0; font-size: .92rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { position: relative; overflow: hidden; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(12,27,45,.95), rgba(6,11,21,.95)); padding: 23px; min-height: 220px; transition: transform .22s, border-color .22s; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(0,200,255,.7); }
+    .card-icon { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--line); background: rgba(0,200,255,.07); color: var(--blue); font-size: 1.35rem; margin-bottom: 20px; }
+    .card h3 { margin: 0 0 8px; font-size: 1.12rem; } .card p { color: var(--muted); font-size: .9rem; margin: 0 0 18px; }
+    .card a { color: var(--blue); font-size: .83rem; font-weight: 850; }
+    .card .number { position: absolute; top: 18px; right: 20px; color: rgba(0,200,255,.25); font-size: 2rem; font-weight: 950; }
+    .feature { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: stretch; }
+    .feature-box { padding: 30px; border: 1px solid var(--line); background: linear-gradient(140deg, rgba(0,200,255,.09), rgba(9,17,29,.9) 50%); }
+    .feature-box h3 { font-size: 1.65rem; line-height: 1.2; margin: 0 0 12px; }
+    .feature-box p { color: var(--muted); }
+    .feature-list { display: grid; gap: 12px; }
+    .feature-item { display: flex; gap: 14px; align-items: start; padding: 17px; border: 1px solid var(--line); background: rgba(9,18,31,.72); }
+    .check { color: var(--blue); font-weight: 900; }
+    .socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
+    .social { padding: 11px 15px; border: 1px solid var(--line); color: var(--muted); background: rgba(0,200,255,.03); border-radius: 4px; font-weight: 750; font-size: .9rem; }
+    .social:hover { color: var(--blue); border-color: var(--blue); }
+    .contact-panel { padding: clamp(25px, 5vw, 48px); border: 1px solid rgba(0,200,255,.35); background: radial-gradient(ellipse at 100% 0%, rgba(0,200,255,.12), transparent 48%), var(--panel); text-align: center; box-shadow: var(--glow); }
+    .contact-panel p { max-width: 600px; color: var(--muted); margin: 12px auto 22px; }
+    footer { padding: 25px 0 35px; border-top: 1px solid var(--line); color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .blue { color: var(--blue); }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @keyframes pulse { 50% { opacity: .4; } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 28px, 600px); }
+      .nav { min-height: 66px; }
+      .menu-btn { display: block; }
+      .links { display: none; position: absolute; top: 65px; left: 0; right: 0; padding: 18px 22px 22px; flex-direction: column; align-items: stretch; gap: 0; background: rgba(5,8,16,.98); border-bottom: 1px solid var(--line); }
+      .links.open { display: flex; }
+      .links a { padding: 12px 0; border-bottom: 1px solid rgba(0,200,255,.08); }
+      .hero { padding: 60px 0 35px; min-height: auto; }
+      .hero-grid, .feature { grid-template-columns: 1fr; gap: 25px; }
+      .hero-art { min-height: 285px; }
+      .orbit { width: min(82vw, 320px); }
+      .tag-one { right: 0; } .tag-two { left: 0; }
+      .stats { margin-top: 25px; }
+      .stat { padding: 15px 7px; } .stat strong { font-size: 1.2rem; } .stat span { font-size: .62rem; letter-spacing: .07em; }
+      section { padding: 56px 0; }
+      .section-head { display: block; } .section-head p { margin-top: 12px; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home" aria-label="Gamer Jay home">
+        <span class="brand-mark">GJ</span>
+        <span class="brand-name">GAMER JAY<span>LEVEL UP YOUR GAME</span></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      <nav class="links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">HOME</a><a href="#games">GAMES</a><a href="#about">ABOUT</a><a href="#social">SOCIALS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow"><span class="dot"></span> PLAYER ONLINE • GAMING ZONE</div>
+            <h1>PLAY HARD.<br><span class="outline">STAY LEGEND.</span></h1>
+            <p>Welcome to my arena. Discover Free Fire action, Minecraft adventures, gaming clips and the next level of Gamer Jay.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="https://www.youtube.com/@jaybandkar" target="_blank" rel="noopener noreferrer">▶ WATCH MY VIDEOS</a>
+              <a class="btn btn-secondary" href="#games">EXPLORE THE ZONE ↘</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-label="Gamer Jay neon logo illustration">
+            <div class="orbit">
+              <span class="float-tag tag-one">GAMER // 001</span>
+              <div class="core"><div><strong>GJ</strong><span>GAMER JAY</span></div></div>
+              <span class="float-tag tag-two">NO LAG. ALL SKILL.</span>
+            </div>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>GAMER</strong><span>My identity</span></div>
+          <div class="stat"><strong>2+</strong><span>Gaming worlds</span></div>
+          <div class="stat"><strong class="blue">∞</strong><span>Next level</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="games">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="kicker">SELECT YOUR MODE</div><h2>ENTER THE <span class="blue">ARENA.</span></h2></div>
+          <p>Choose a world, watch the clips, and join the Gamer Jay community.</p>
+        </div>
+        <div class="cards">
+          <article class="card reveal"><span class="number">01</span><div class="card-icon">🎯</div><h3>FREE FIRE</h3><p>Clutch moments, sniper shots, rank pushes and battle highlights.</p><a href="https://www.youtube.com/@jaybandkar" target="_blank" rel="noopener noreferrer">WATCH HIGHLIGHTS ↗</a></article>
+          <article class="card reveal"><span class="number">02</span><div class="card-icon">⛏</div><h3>MINECRAFT</h3><p>Builds, survival adventures, SMP moments and creative experiments.</p><a href="https://www.youtube.com/@jaybandkar" target="_blank" rel="noopener noreferrer">EXPLORE VIDEOS ↗</a></article>
+          <article class="card reveal"><span class="number">03</span><div class="card-icon">⚡</div><h3>SHORTS & CLIPS</h3><p>Quick gaming edits, funny moments and short-form action.</p><a href="https://www.youtube.com/@jaybandkar/shorts" target="_blank" rel="noopener noreferrer">PLAY SHORTS ↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap feature">
+        <div class="feature-box reveal">
+          <div class="kicker">THE PLAYER BEHIND THE SCREEN</div>
+          <h3>THIS IS <span class="blue">GAMER JAY.</span></h3>
+          <p>A gaming creator focused on fun, creative gameplay and leveling up one video at a time. This site is my digital base camp.</p>
+          <a class="btn btn-secondary" href="https://www.youtube.com/@jaybandkar" target="_blank" rel="noopener noreferrer">SUBSCRIBE ON YOUTUBE ↗</a>
+        </div>
+        <div class="feature-list reveal">
+          <div class="feature-item"><span class="check">▰</span><div><strong>Gaming first</strong><br><span style="color:var(--muted)">Free Fire battles and Minecraft worlds.</span></div></div>
+          <div class="feature-item"><span class="check">▰</span><div><strong>Made for mobile</strong><br><span style="color:var(--muted)">Designed to look sharp on phones and desktops.</span></div></div>
+          <div class="feature-item"><span class="check">▰</span><div><strong>Built to evolve</strong><br><span style="color:var(--muted)">Add your newest videos, links and projects anytime.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="social">
+      <div class="wrap">
+        <div class="contact-panel reveal">
+          <div class="kicker">CONNECT • FOLLOW • PLAY</div>
+          <h2>JOIN THE <span class="blue">SQUAD.</span></h2>
+          <p>Catch the latest uploads and follow Gamer Jay on social media. See you in the next match!</p>
+          <div class="socials" style="justify-content:center">
+            <a class="social" href="https://www.youtube.com/@jaybandkar" target="_blank" rel="noopener noreferrer">▶ YouTube</a>
+            <a class="social" href="https://www.instagram.com/gamer_jay24/" target="_blank" rel="noopener noreferrer">◎ Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> <strong class="blue">GAMER JAY</strong> • ALL SYSTEMS ONLINE</span>
+      <a href="#home">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      menuBtn.textContent = isOpen ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
